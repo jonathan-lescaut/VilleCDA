@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Presentation index{% endblock %}
+
+{% block body %}
+    <h1>Presentation index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>TitrePresentation</th>
+                <th>LogoPresentation</th>
+                <th>ImgPresentation</th>
+                <th>ImgPresentation1</th>
+                <th>ImgPresentation2</th>
+                <th>ImgPresentation3</th>
+                <th>ImgPresentation4</th>
+
+
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for presentation in presentations %}
+            <tr>
+                <td>{{ presentation.id }}</td>
+                <td>{{ presentation.titrePresentation }}</td>
+                <td><img src="{{ asset('uploads/photos/' ~ presentation.logoPresentation) }}" width="20"></td>
+                <td><img src="{{ asset('uploads/photos/' ~ presentation.imgPresentation) }}" width="30"></td>
+                <td><img src="{{ asset('uploads/photos/' ~ presentation.imgPresentation1) }}" width="30"></td>
+                <td><img src="{{ asset('uploads/photos/' ~ presentation.imgPresentation2) }}" width="30"></td>
+                <td><img src="{{ asset('uploads/photos/' ~ presentation.imgPresentation3) }}" width="30"></td>
+                <td><img src="{{ asset('uploads/photos/' ~ presentation.imgPresentation4) }}" width="30"></td>
+
+                <td>
+                    <a href="{{ path('app_presentation_show', {'id': presentation.id}) }}">show</a>
+                    <a href="{{ path('app_presentation_edit', {'id': presentation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_presentation_new') }}">Create new</a>
+    <a href="{{ path('app_presentation_index') }}">back to list</a>
+
+{% endblock %}

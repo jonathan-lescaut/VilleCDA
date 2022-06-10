@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Articles{% endblock %}
+
+{% block body %}
+<section class="article">
+    <h1>{{ article.categories.nameCategories }}</h1>
+    <table class="table">
+        <tbody>
+            <tr>
+                <td class="nameArticlesShow">{{ article.nameArticles }}</td>
+            </tr>
+            <tr>
+                <td class="resumeArticlesShow">{{ article.resumeArticles }}</td>
+            </tr>
+            <tr>
+                <td class="contenuArticlesShow">{{ article.contenuArticles }}</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+{% endblock %}
